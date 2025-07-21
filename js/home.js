@@ -95,6 +95,12 @@ function mobile() {
         if (resultsVisible || (leftArrowCount === 0 && rightArrowCount === 0)) {
             return;
         }
+
+        // Моргаем зеленым на 1 секунду
+        circle.style.background = '#00ff00'; // Зеленый цвет
+        setTimeout(() => {
+            circle.style.background = '#6f6f6f'; // Возвращаем исходный цвет
+        }, 1000);
         
         const results = {
             leftCount: leftArrowCount,
@@ -180,14 +186,14 @@ function mobile() {
     resetInactivityTimer();
 }
 
-// mobile()
+mobile()
 // PS()
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    mobile()
-} else {
-    PS()
-}
+// if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+//     mobile()
+// } else {
+//     PS()
+// }
 
 function PS() {
     // определяем, поддерживается ли pointerLock
